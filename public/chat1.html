@@ -136,7 +136,7 @@
             addMessage("You: " + userMessage, "user");
             messageInput.value = '';
 
-            const response = await fetch("/api/chat", {
+            const response = await fetch("/api/chat1", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -146,7 +146,7 @@
 
             if (response.ok) {
                 const data = await response.json();
-                addMessage("Gem AI: " + data.response, "ai", true);
+                addMessage("Gem AI 2: " + data.response, "ai", true);
 
                 // If the response contains code in ``` blocks, format it
                 if (data.response.includes('```')) {
