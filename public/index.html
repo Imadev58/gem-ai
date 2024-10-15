@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gem AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #2980B9, #6DD5FA);
+            color: #fff;
+            overflow-x: hidden;
+            margin: 0;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.85);
+            border-radius: 15px;
+            padding: 40px 60px;
+            max-width: 1200px;
+            margin: 50px auto;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .headline {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-align: center;
+        }
+        .subheadline {
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            font-style: italic;
+            text-align: center;
+        }
+        .description {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        .feature {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+            margin: 10px;
+            width: calc(30% - 20px);
+            transition: transform 0.3s ease;
+        }
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
+        }
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: #007BFF;
+        }
+        .gem-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 20px auto;
+            animation: spin 6s linear infinite;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #007BFF;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px auto;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container animate__animated animate__fadeInDown">
+        <img class="gem-image animate__animated animate__fadeIn" src="gem_ai_logo.png" alt="Gem AI Logo">
+
+        <h1 class="headline animate__animated animate__fadeInUp">Introducing Gem AI</h1>
+        <h3 class="subheadline animate__animated animate__fadeInUp">Your Next Generation AI Assistant</h3>
+        <div class="description animate__animated animate__fadeInUp">
+            Gem AI is a cutting-edge AI assistant from Gem Intelligence, designed to empower your workflow. We utilize advanced algorithms and vast datasets to provide accurate, comprehensive, and efficient solutions to a wide array of tasks. Experience the future of intelligent assistance!
+        </div>
+
+        <div class="features">
+            <div class="feature animate__animated animate__fadeInUp">
+                <i class="fas fa-lightbulb feature-icon"></i>
+                <h3>Innovation</h3>
+                <p>We constantly push the boundaries of what's possible in AI.</p>
+            </div>
+            <div class="feature animate__animated animate__fadeInUp">
+                <i class="fas fa-cogs feature-icon"></i>
+                <h3>Efficiency</h3>
+                <p>Streamline your processes and achieve more in less time.</p>
+            </div>
+            <div class="feature animate__animated animate__fadeInUp">
+                <i class="fas fa-robot feature-icon"></i>
+                <h3>Intelligence</h3>
+                <p>Experience unparalleled AI capabilities tailored to your needs.</p>
+            </div>
+        </div>
+
+        <a href="chat.html" class="button animate__animated animate__fadeInUp">TRY IT NOW</a>
+    </div>
+</body>
+</html>
