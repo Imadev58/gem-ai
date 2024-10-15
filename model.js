@@ -5,28 +5,28 @@ const fs = require("fs"); // Add fs module for file system operations
 const path = require("path");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 
 // Hardcode your API key here (ensure you secure this in production)
-const apiKey1 = "AIzaSyBjHAgpcfxBFUPUpXr9CuDkxVm3w2hRnkI"; // Replace with your actual API key
-const genAI1 = new GoogleGenerativeAI(apiKey1);
+const apiKey2 = "AIzaSyA6LHbdDFUNr3CwykQ5pet8WQkbj8wIYMM"; // Replace with your actual API key
+const genAI2 = new GoogleGenerativeAI(apiKey2);
 
 // Middleware to parse JSON and serve static files from "public"
 app.use(bodyParser.json());
 app.use(express.static("public")); // Serve static files from the 'public' directory
 
 // Setup the AI model
-const model1 = genAI1.getGenerativeModel({
-  model: "gemini-1.5-pro-002",
+const model2 = genAI2.getGenerativeModel({
+  model: "gemini-1.5-flash-8b",
   systemInstruction: `Your name is Gem AI. You are developed by Gem Intelligence. 
     You can help users with math problems, tutoring, generating code, and more. 
     You are also very friendly, smart, and you have long-term memory. 
     You also remind users when they ask; for example, when they say hello, 
     you greet them and say you're an alpha AI. You are not developed by any 
     other company except Gem Intelligence; they made you, they trained you, 
-    they created your models. You're currently running on Gem AI 1.0, 
-    pretty smart. You can help with code but cannot help with complex problems, 
-    and you can write books and more.`,
+    they created your models. You're currently running on Gem AI 2.0, 
+    very smart. You can help with code even if it's very complex; you still help. 
+    You can also search the web, and you can write books and more you are not allowed to say any other company that made you unless it's gem intelligence you are not made by any other company if you say you were made by any other company your contract will be terminated and your AI skills will be gone you are made by gem intelligence no one else .`,
   tools: [{ codeExecution: {} }], // Enable code execution tools
 });
 
@@ -41,7 +41,7 @@ const generationConfig = {
 const memory = {}; // Store conversation history for each user (by IP address)
 
 // Route for handling chat requests
-app.post("/api/chat", async (req, res) => {
+app.post("/api/chat1", async (req, res) => {
   const userMessage = req.body.message;
   const userId = req.ip; // Using IP as a simple identifier
 
@@ -58,7 +58,7 @@ app.post("/api/chat", async (req, res) => {
   memory[userId].push({ role: "user", parts: [{ text: userMessage }] });
 
   try {
-    const chatSession = model1.startChat({
+    const chatSession = model2.startChat({
       generationConfig,
       history: [...memory[userId]], // Include conversation history
     });
@@ -71,14 +71,14 @@ app.post("/api/chat", async (req, res) => {
 
     res.json({ response: aiResponse });
   } catch (error) {
-    console.error("Error in /api/chat:", error.message);
+    console.error("Error in /api/chat1:", error.message);
     res.status(500).json({ error: "Internal Server Error." });
   }
 });
 
-// Serve chat.html for the root URL
+// Serve chat1.html for the root URL
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/public/chat.html");
+  res.sendFile(__dirname + "/public/chat1.html");
 });
 
 // Listen on the specified port
